@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### A Python-based Control Flow Graph Generator for MIPS Assembly
 
 ##### Structure:
@@ -21,3 +22,13 @@ PLY (Lex & Yacc), Graphviz
 - CFG
 
 ![image-20210223184600978](C:\Users\Jiahui\AppData\Roaming\Typora\typora-user-images\image-20210223184600978.png)
+=======
+A Python-based Control Flow Graph Generator for MIPS Assembly
+
+
+
+
+        
+
+            
+>>>>>>> 08fe26f740bb8bcf2b74d99df5944b9ab8cc9512
