@@ -1,0 +1,40 @@
+index: 1,
+type: ,
+ label: 
+['.data', [{'declare label:': 'a'}, '.word', 1], [{'declare label:': 'b'}, '.word', 0], [{'declare label:': 'c'}, '.word', 7], [{'declare label:': 'message'}, '.asciiz', '"The min is: "']]
+index: 2,
+type: .text,
+ label: main
+[[{'label:': 'main'}], ['lw', '$t1', 'a'], ['lw', '$t2', 'b'], ['lw', '$t3', 'c'], ['bgt', '$t1', '$t2', 'exchange1_2']]
+index: 3,
+type: .text,
+ label: 
+[]
+index: 4,
+type: .text,
+ label: compare13
+[[{'label:': 'compare13'}], ['bgt', '$t1', '$t3', 'exchange1_3']]
+index: 5,
+type: .text,
+ label: 
+[]
+index: 6,
+type: .text,
+ label: printMIN
+[[{'label:': 'printMIN'}], ['li', '$v0', 4], ['la', '$a0', 'message'], ['syscall'], ['li', '$v0', 1], ['move', '$a0', '$t1'], ['syscall'], ['li', '$v0', 10], ['syscall']]
+index: 7,
+type: .text,
+ label: exchange1_2
+[[{'label:': 'exchange1_2'}], ['move', '$t9', '$t1'], ['move', '$t1', '$t2'], ['move', '$t2', '$t9'], ['j', 'compare13']]
+index: 8,
+type: .text,
+ label: 
+[]
+index: 9,
+type: .text,
+ label: exchange1_3
+[[{'label:': 'exchange1_3'}], ['move', '$t9', '$t1'], ['move', '$t1', '$t3'], ['move', '$t3', '$t9'], ['j', 'printMIN']]
+index: 10,
+type: .text,
+ label: 
+[]

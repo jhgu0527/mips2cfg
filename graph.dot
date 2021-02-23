@@ -1,0 +1,17 @@
+digraph "CFG for input function" {
+size = "16,16";
+label = "CFG for input function";
+1 [shape=record,label="\l.data \ldeclare label: a .word 1\ldeclare label: b .word 0\ldeclare label: c .word 7\ldeclare label: message .asciiz The min is: \l"];
+2 [shape=record,label="\llabel: main\llw $t1 a\llw $t2 b\llw $t3 c\lbgt $t1 $t2 exchange1_2\l"];
+4 [shape=record,label="\llabel: compare13\lbgt $t1 $t3 exchange1_3\l"];
+6 [shape=record,label="\llabel: printMIN\lli $v0 4\lla $a0 message\lsyscall\lli $v0 1\lmove $a0 $t1\lsyscall\lli $v0 10\lsyscall\l"];
+7 [shape=record,label="\llabel: exchange1_2\lmove $t9 $t1\lmove $t1 $t2\lmove $t2 $t9\lj compare13\l"];
+9 [shape=record,label="\llabel: exchange1_3\lmove $t9 $t1\lmove $t1 $t3\lmove $t3 $t9\lj printMIN\l"];
+1 -> 2;
+2 -> 7 [label = "T"];
+2 -> 4 [label = "F"];
+4 -> 9 [label = "T"];
+4 -> 6 [label = "F"];
+7 -> 4;
+9 -> 6;
+}

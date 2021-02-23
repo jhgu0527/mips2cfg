@@ -1,0 +1,18 @@
+digraph "CFG for input function" {
+size = "16,16";
+label = "CFG for input function";
+1 [shape=record,label="\l.data \ldeclare label: end_loop .asciiz End of Loop\ldeclare label: newline .asciiz \\n\l"];
+2 [shape=record,label="\llabel: main\laddi $t0 $zero 0\laddi $t1 $zero 0\l"];
+3 [shape=record,label="\llabel: while\lbgt $t0 10 exit\l"];
+4 [shape=record,label="\ljal printNum\l"];
+5 [shape=record,label="\laddi $t0 $t0 1\ladd $t1 $t1 $t0\lsyscall\lj while\l"];
+7 [shape=record,label="\llabel: exit\lli $v0 4\lla $a0 end_loop\lsyscall\lli $v0 10\lsyscall\l"];
+8 [shape=record,label="\llabel: printNum\lli $v0 1\lmove $a0 $t1\lsyscall\lli $v0 4\lla $a0 newline\lsyscall\ljr $ra\l"];
+1 -> 2;
+2 -> 3;
+3 -> 7 [label = "T"];
+3 -> 4 [label = "F"];
+4 -> 8;
+5 -> 3;
+8 -> 5;
+}

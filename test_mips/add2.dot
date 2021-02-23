@@ -1,0 +1,5 @@
+digraph "CFG for input function" {
+size = "16,16";
+label = "CFG for input function";
+1 [shape=record,label="\llabel: main\lli $v0 5\lsyscall\lmove $t0 $v0\lli $v0 5\lsyscall\lmove $t1 $v0\ladd $t2 $t0 $t1\lmove $a0 $t2\lli $v0 1\lsyscall\lli $v0 10\lsyscall\l"];
+}

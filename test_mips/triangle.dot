@@ -1,0 +1,11 @@
+digraph "CFG for input function" {
+size = "16,16";
+label = "CFG for input function";
+1 [shape=record,label="\l.data \ldeclare label: a .word 15\ldeclare label: b .word 5\ldeclare label: c .word 7\ldeclare label: trueMsg .asciiz The three lines can form a triangle\ldeclare label: falseMsg .asciiz The three lines can not form a triangle\l"];
+2 [shape=record,label="\llabel: main\llw $t1 a\llw $t2 b\llw $t3 c\ladd $t4 $t1 $t2\ladd $t5 $t1 $t3\ladd $t6 $t2 $t3\lslt $s0 $t3 $t4\lslt $s1 $t2 $t5\lslt $s2 $t1 $t6\land $s1 $s1 $s2\land $s0 $s0 $s1\lbeq $s0 $zero printFalse\l"];
+3 [shape=record,label="\lli $v0 4\lla $a0 trueMsg\lsyscall\lli $v0 10\lsyscall\l"];
+4 [shape=record,label="\llabel: printFalse\lli $v0 4\lla $a0 falseMsg\lsyscall\l"];
+1 -> 2;
+2 -> 4 [label = "T"];
+2 -> 3 [label = "F"];
+}
