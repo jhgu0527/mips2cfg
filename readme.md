@@ -1,7 +1,7 @@
 A Python-based Control Flow Graph Generator for MIPS Assembly
 
 ##### Structure:
-
+![structure](../main/temp/structure.png)
 
 
 ##### Tools: 
